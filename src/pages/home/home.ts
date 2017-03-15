@@ -32,6 +32,9 @@ export class HomePage {
   }
  
   viewItem(item){
+  this.navCtrl.push(itemDetailPage,{
+  item: item
+  });
   }
 
   saveItem(item){
