@@ -7,19 +7,19 @@ import { AddItemPage } from '../add-item-page/add-item-page'
   templateUrl: 'home.html'
 })
 export class HomePage {
- 
+
   public items = [];
- 
+
   constructor(public navCtrl: NavController, public modalCtrl: ModalController ) {
-    
+
   }
- 
+
   ionViewDidLoad(){
-  
+
   }
- 
+
   addItem(){
- 
+
     let addModal = this.modalCtrl.create(AddItemPage);
     // call back when modal dismissed
     addModal.onDidDismiss((item) => {
@@ -28,17 +28,17 @@ export class HomePage {
       }
     });
     addModal.present();
-    
+
   }
- 
+
   viewItem(item){
-  this.navCtrl.push(itemDetailPage,{
-  item: item
-  });
+    this.navCtrl.push(HomePage,{
+      item: item
+    });
   }
 
   saveItem(item){
     this.items.push(item);
   }
- 
+
 }
