@@ -27,6 +27,6 @@ import { Data } from '../providers/data';
     AddListPage,
     ListDetailPage
   ],
-  providers: [Storage, Data, {provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [Storage, Data, { provide: ErrorHandler, useClass: IonicErrorHandler }]
 })
-export class AppModule {}
+export class AppModule { }

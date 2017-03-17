@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Platform,Nav } from 'ionic-angular';
+import { Platform, Nav } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 import { AboutPage } from '../pages/about/about';
 import { HomePage } from '../pages/home/home';
@@ -20,10 +20,10 @@ export class MyApp {
       Splashscreen.hide();
     });
   }
-  go_to_home(Page){
+  go_to_home(Page) {
     this.nav.setRoot(HomePage);
   }
-  go_to_about(){
-    this.nav.setRoot(AboutPage);  
+  go_to_about() {
+    this.nav.setRoot(AboutPage);
   }
 }

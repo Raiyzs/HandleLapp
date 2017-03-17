@@ -6,17 +6,17 @@ import { NavController, ViewController } from 'ionic-angular';
   templateUrl: 'add-list-page.html'
 })
 export class AddListPage {
-    
+
   title;
   description;
 
-  constructor(public navCtrl: NavController, public vc: ViewController) {}
+  constructor(public navCtrl: NavController, public vc: ViewController) { }
 
   ionViewDidLoad() {
     console.log('Hello AddListPage Page');
   }
 
-  saveList(){
+  saveList() {
 
     let newList = {
 
@@ -29,7 +29,7 @@ export class AddListPage {
 
   }
 
-  close(){
+  close() {
     this.vc.dismiss();
   }
 

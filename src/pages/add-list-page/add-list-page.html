@@ -1,8 +1,8 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-        Legg til
-    </ion-title>
+    <ion-toolbar>
+        <ion-title>
+            Legg til
+        </ion-title>
         <ion-buttons end>
             <button ion-button icon-only (click)="close()"><ion-icon name="close"></ion-icon></button>
         </ion-buttons>
@@ -12,18 +12,18 @@
 <ion-content>
     <ion-list>
 
-      <ion-item>
-        <ion-label floating>Tittel</ion-label>
-        <ion-input type="text" [(ngModel)]="title"></ion-input>
-      </ion-item>
+        <ion-item>
+            <ion-label floating>Tittel</ion-label>
+            <ion-input type="text" [(ngModel)]="title"></ion-input>
+        </ion-item>
 
-      <ion-item>
-        <ion-label floating>Beskrivelse</ion-label>
-        <ion-input type="text" [(ngModel)]="description"></ion-input>
-      </ion-item>
+        <ion-item>
+            <ion-label floating>Beskrivelse</ion-label>
+            <ion-input type="text" [(ngModel)]="description"></ion-input>
+        </ion-item>
 
     </ion-list>
 
-    <button full ion-button color="secondary" (click)="saveList()">Lagre</button> 
+    <button full ion-button color="secondary" (click)="saveList()">Lagre</button>
 
 </ion-content>

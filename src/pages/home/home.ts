@@ -14,39 +14,39 @@ export class HomePage {
   public lists = [];
 
   constructor(public navCtrl: NavController, public modalCtrl: ModalController, public dataService: Data) {
- 
+
     this.dataService.getData().then((handlelapp) => {
-       if(handlelapp){
-        this.lists = JSON.parse(handlelapp); 
+      if (handlelapp) {
+        this.lists = JSON.parse(handlelapp);
       }
-     });
- 
-  }
-
-  ionViewDidLoad(){
+    });
 
   }
 
-  addItem(){
+  ionViewDidLoad() {
+
+  }
+
+  addList() {
 
     let addModal = this.modalCtrl.create(AddListPage);
     // call back when modal dismissed
     addModal.onDidDismiss((list) => {
-      if(list){
-        this.saveItem(list);
+      if (list) {
+        this.saveList(list);
       }
     });
     addModal.present();
 
   }
 
-  viewItem(list){
+  viewList(list) {
     this.navCtrl.push(ListDetailPage, {
       list: list
     });
   }
 
-  saveItem(list){
+  saveList(list) {
     this.lists.push(list);
     this.dataService.save(this.lists);
   }
