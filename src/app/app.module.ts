@@ -2,7 +2,6 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { AddItemPage } from '../pages/add-item-page/add-item-page';
 import { ItemDetailPage } from '../pages/item-detail-page/item-detail-page';
@@ -13,7 +12,6 @@ import { Data } from '../providers/data';
   declarations: [
     MyApp,
     AboutPage,
-    ContactPage,
     HomePage,
     AddItemPage,
     ItemDetailPage
@@ -25,7 +23,6 @@ import { Data } from '../providers/data';
   entryComponents: [
     MyApp,
     AboutPage,
-    ContactPage,
     HomePage,
     AddItemPage,
     ItemDetailPage
