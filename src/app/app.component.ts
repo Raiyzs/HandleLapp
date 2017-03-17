@@ -1,16 +1,15 @@
 import { Component, ViewChild } from '@angular/core';
 import { Platform,Nav } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
-
-import { TabsPage } from '../pages/tabs/tabs';
 import { AboutPage } from '../pages/about/about';
+import { HomePage } from '../pages/home/home';
 
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage = TabsPage;
+  rootPage = HomePage;
   @ViewChild(Nav) nav: Nav;
 
   constructor(platform: Platform) {
@@ -22,7 +21,7 @@ export class MyApp {
     });
   }
   go_to_home(Page){
-    this.nav.setRoot(TabsPage);
+    this.nav.setRoot(HomePage);
   }
   go_to_about(){
     this.nav.setRoot(AboutPage);  

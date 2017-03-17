@@ -4,7 +4,6 @@ import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
-import { TabsPage } from '../pages/tabs/tabs';
 import { AddItemPage } from '../pages/add-item-page/add-item-page';
 import { ItemDetailPage } from '../pages/item-detail-page/item-detail-page';
 import { Storage } from '@ionic/storage';
@@ -16,7 +15,6 @@ import { Data } from '../providers/data';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage,
     AddItemPage,
     ItemDetailPage
   ],
@@ -29,7 +27,6 @@ import { Data } from '../providers/data';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage,
     AddItemPage,
     ItemDetailPage
   ],
