@@ -9,12 +9,12 @@ export class Data {
   }
  
   getData() {
-    return this.storage.get('todos');  
+    return this.storage.get('handlelapp');  
   }
  
   save(data){
     let newData = JSON.stringify(data);
-    this.storage.set('todos', newData);
+    this.storage.set('handlelapp', newData);
   }
 
 }

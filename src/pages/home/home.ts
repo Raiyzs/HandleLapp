@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ModalController, NavController } from 'ionic-angular';
-import { AddItemPage } from '../add-item-page/add-item-page'
-import { ItemDetailPage } from '../item-detail-page/item-detail-page';
+import { AddListPage } from '../add-list-page/add-list-page'
+import { ListDetailPage } from '../list-detail-page/list-detail-page';
 import { Data } from '../../providers/data';
 
 
@@ -11,13 +11,13 @@ import { Data } from '../../providers/data';
 })
 export class HomePage {
 
-  public items = [];
+  public lists = [];
 
   constructor(public navCtrl: NavController, public modalCtrl: ModalController, public dataService: Data) {
  
-    this.dataService.getData().then((todos) => {
-       if(todos){
-        this.items = JSON.parse(todos); 
+    this.dataService.getData().then((handlelapp) => {
+       if(handlelapp){
+        this.lists = JSON.parse(handlelapp); 
       }
      });
  
@@ -29,26 +29,26 @@ export class HomePage {
 
   addItem(){
 
-    let addModal = this.modalCtrl.create(AddItemPage);
+    let addModal = this.modalCtrl.create(AddListPage);
     // call back when modal dismissed
-    addModal.onDidDismiss((item) => {
-      if(item){
-        this.saveItem(item);
+    addModal.onDidDismiss((list) => {
+      if(list){
+        this.saveItem(list);
       }
     });
     addModal.present();
 
   }
 
-  viewItem(item){
-    this.navCtrl.push(ItemDetailPage, {
-      item: item
+  viewItem(list){
+    this.navCtrl.push(ListDetailPage, {
+      list: list
     });
   }
 
-  saveItem(item){
-    this.items.push(item);
-    this.dataService.save(this.items);
+  saveItem(list){
+    this.lists.push(list);
+    this.dataService.save(this.lists);
   }
 
 }

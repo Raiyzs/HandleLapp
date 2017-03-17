@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { NavController, ViewController } from 'ionic-angular';
 
 @Component({
-  selector: 'page-add-item-page',
-  templateUrl: 'add-item-page.html'
+  selector: 'page-add-list-page',
+  templateUrl: 'add-list-page.html'
 })
-export class AddItemPage {
+export class AddListPage {
     
   title;
   description;
@@ -13,19 +13,19 @@ export class AddItemPage {
   constructor(public navCtrl: NavController, public vc: ViewController) {}
 
   ionViewDidLoad() {
-    console.log('Hello AddItemPage Page');
+    console.log('Hello AddListPage Page');
   }
 
-  saveItem(){
+  saveList(){
 
-    let newItem = {
+    let newList = {
 
       title: this.title,
       description: this.description
 
     };
 
-    this.vc.dismiss(newItem);
+    this.vc.dismiss(newList);
 
   }
 
