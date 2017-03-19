@@ -56,4 +56,11 @@ export class HomePage {
     this.lists = reorderArray(this.lists, indexes);
   }
 
+  deleteList(list){
+    let index = this.lists.indexOf(list);
+    if(index > -1){
+      this.lists.splice(index, 1);
+    }
+  }
+
 }
