@@ -5,6 +5,7 @@ import { AboutPage } from '../pages/about/about';
 import { HomePage } from '../pages/home/home';
 import { AddListPage } from '../pages/add-list-page/add-list-page';
 import { ListDetailPage } from '../pages/list-detail-page/list-detail-page';
+import { AddItemPage } from '../pages/add-item-page/add-item-page';
 import { Storage } from '@ionic/storage';
 import { Data } from '../providers/data';
 
@@ -14,7 +15,8 @@ import { Data } from '../providers/data';
     AboutPage,
     HomePage,
     AddListPage,
-    ListDetailPage
+    ListDetailPage,
+    AddItemPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -25,7 +27,8 @@ import { Data } from '../providers/data';
     AboutPage,
     HomePage,
     AddListPage,
-    ListDetailPage
+    ListDetailPage,
+    AddItemPage
   ],
   providers: [Storage, Data, { provide: ErrorHandler, useClass: IonicErrorHandler }]
 })
