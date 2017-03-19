@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ModalController, NavController } from 'ionic-angular';
+import { ModalController, NavController, reorderArray } from 'ionic-angular';
 import { AddListPage } from '../add-list-page/add-list-page'
 import { ListDetailPage } from '../list-detail-page/list-detail-page';
 import { Data } from '../../providers/data';
@@ -12,6 +12,7 @@ import { Data } from '../../providers/data';
 export class HomePage {
 
   public lists = [];
+  reorderBtn: any = 'reorder';
 
   constructor(public navCtrl: NavController, public modalCtrl: ModalController, public dataService: Data) {
 
@@ -49,6 +50,10 @@ export class HomePage {
   saveList(list) {
     this.lists.push(list);
     this.dataService.save(this.lists);
+  }
+
+  reorderList(indexes){
+    this.lists = reorderArray(this.lists, indexes);
   }
 
 }
