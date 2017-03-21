@@ -3,13 +3,34 @@
     <ion-title>
       {{title}}
     </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addItem()"><ion-icon name="add-circle"></ion-icon></button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+  <!--<ion-list reorder="true" (ionItemReorder)="reorderList($event)">
+    <ion-item *ngFor="let list of lists" (click)="viewList(list)">{{list.title}}</ion-item>
+  </ion-list>-->
+  <ion-list reorder="true" (ionItemReorder)="reorderItems($event)">
+    <ion-item-sliding *ngFor="let item of items">
+      <ion-item>
+        {{item.title}}
+      </ion-item>
+      <ion-item-options>
+        <button ion-button icon-only (click)="deleteItem(item)" color="danger">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
+
+<!--<ion-content>
   <ion-card>
     <ion-card-content>
       {{description}}
     </ion-card-content>
   </ion-card>
-</ion-content>
+</ion-content>-->
