@@ -16,6 +16,6 @@ export class Data {
     let newData = JSON.stringify(data);
     this.storage.set('handlelapp', newData);
   }
-  
+
 
 }

@@ -52,13 +52,13 @@ export class HomePage {
     this.dataService.save(this.lists);
   }
 
-  reorderList(indexes){
+  reorderList(indexes) {
     this.lists = reorderArray(this.lists, indexes);
   }
 
-  deleteList(list){
+  deleteList(list) {
     let index = this.lists.indexOf(list);
-    if(index > -1){
+    if (index > -1) {
       this.lists.splice(index, 1);
     }
   }

@@ -12,7 +12,6 @@ import { AddItemPage } from '../add-item-page/add-item-page'
 export class ListDetailPage {
 
   title;
-  description;
   public items = [];
 
   constructor(public navParams: NavParams, navCtrl: NavController, public modalCtrl: ModalController, public dataService: Data) {
@@ -21,7 +20,6 @@ export class ListDetailPage {
 
   ionViewDidLoad() {
     this.title = this.navParams.get('list').title;
-    this.description = this.navParams.get('list').description;
   }
 
   addItem() {
@@ -37,18 +35,18 @@ export class ListDetailPage {
 
   }
 
-    saveItem(item) {
+  saveItem(item) {
     this.items.push(item);
     this.dataService.save(this.items);
   }
 
-    reorderItems(indexes){
+  reorderItems(indexes) {
     this.items = reorderArray(this.items, indexes);
   }
 
-    deleteItem(item){
+  deleteItem(item) {
     let index = this.items.indexOf(item);
-    if(index > -1){
+    if (index > -1) {
       this.items.splice(index, 1);
     }
   }

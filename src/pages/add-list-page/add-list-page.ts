@@ -8,7 +8,6 @@ import { NavController, ViewController } from 'ionic-angular';
 export class AddListPage {
 
   title;
-  description;
 
   constructor(public navCtrl: NavController, public vc: ViewController) { }
 
@@ -21,7 +20,6 @@ export class AddListPage {
     let newList = {
 
       title: this.title,
-      description: this.description
 
     };
 
