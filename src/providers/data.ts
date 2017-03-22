@@ -8,13 +8,13 @@ export class Data {
 
   }
 
-  getData() {
-    return this.storage.get('handlelapp');
+  getData(name) {
+    return this.storage.get(name);
   }
 
-  save(data) {
+  save(data, name) {
     let newData = JSON.stringify(data);
-    this.storage.set('handlelapp', newData);
+    this.storage.set(name, newData);
   }
 
 

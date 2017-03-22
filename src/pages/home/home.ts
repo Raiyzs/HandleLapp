@@ -16,7 +16,7 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, public modalCtrl: ModalController, public dataService: Data) {
 
-    this.dataService.getData().then((handlelapp) => {
+    this.dataService.getData('handlelapp').then((handlelapp) => {
       if (handlelapp) {
         this.lists = JSON.parse(handlelapp);
       }
@@ -41,6 +41,10 @@ export class HomePage {
 
   }
 
+  saveToStorage(){
+    this.dataService.save(this.lists, 'handlelapp');
+  }
+
   viewList(list) {
     this.navCtrl.push(ListDetailPage, {
       list: list
@@ -49,17 +53,19 @@ export class HomePage {
 
   saveList(list) {
     this.lists.push(list);
-    this.dataService.save(this.lists);
+    this.saveToStorage();
   }
 
   reorderList(indexes) {
     this.lists = reorderArray(this.lists, indexes);
+    this.saveToStorage();
   }
 
   deleteList(list) {
     let index = this.lists.indexOf(list);
     if (index > -1) {
       this.lists.splice(index, 1);
+      this.saveToStorage();
     }
   }
 

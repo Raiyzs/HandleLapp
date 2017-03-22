@@ -20,6 +20,7 @@ export class AddListPage {
     let newList = {
 
       title: this.title,
+      uuid: Math.floor(Math.random() * 20) +'',
 
     };
 
