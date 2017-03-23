@@ -16,7 +16,8 @@
   <ion-list reorder="{{flag}}" (ionItemReorder)="reorderItems($event)">
     <ion-item-sliding *ngFor="let item of items">
       <ion-item>
-        {{item.title}}
+        <ion-label>{{item.title}}</ion-label>
+        <ion-checkbox></ion-checkbox>
       </ion-item>
       <ion-item-options>
         <button ion-button icon-only (click)="deleteItem(item)" color="danger">
