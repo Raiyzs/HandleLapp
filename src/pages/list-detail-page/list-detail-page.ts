@@ -13,6 +13,8 @@ export class ListDetailPage {
 
   title;
   public items = [];
+  myIcon: string = "list";
+  flag: any = false;
 
   constructor(public navParams: NavParams, navCtrl: NavController, public modalCtrl: ModalController, public dataService: Data, public alertCtrl: AlertController) {
 
@@ -88,6 +90,17 @@ export class ListDetailPage {
       ]
     });
     prompt.present();
+  }
+
+  reorderBtn() {
+    if (this.myIcon == 'list') {
+      this.myIcon = 'checkmark'
+      this.flag = true;
+    }
+    else {
+      this.myIcon = 'list'
+      this.flag = false;
+    }
   }
 
 }

@@ -12,7 +12,8 @@ import { Data } from '../../providers/data';
 export class HomePage {
 
   public lists = [];
-  reorderBtn: any = 'reorder';
+  myIcon: string = "list";
+  flag: any = false;
 
   constructor(public navCtrl: NavController, public modalCtrl: ModalController, public dataService: Data, public alertCtrl: AlertController) {
 
@@ -94,6 +95,17 @@ export class HomePage {
     });
     prompt.present();
 
+  }
+
+  reorderBtn() {
+    if (this.myIcon == 'list') {
+      this.myIcon = 'checkmark'
+      this.flag = true;
+    }
+    else{
+      this.myIcon = 'list'
+      this.flag = false;
+    }
   }
 
 }

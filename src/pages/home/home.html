@@ -8,14 +8,17 @@
     <ion-title>
       HandlelAPP
     </ion-title>
-    <ion-buttons end>
+    <ion-buttons right>
+      <button ion-button icon-only (click)="reorderBtn();"><ion-icon [name]="myIcon" color="dark"></ion-icon></button>
+    </ion-buttons>
+    <ion-buttons right>
       <button ion-button icon-only (click)="addList()"><ion-icon name="add-circle" color="dark"></ion-icon></button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-list reorder="true" (ionItemReorder)="reorderList($event)">
+  <ion-list reorder="{{flag}}" (ionItemReorder)="reorderList($event)">
     <ion-item-sliding *ngFor="let list of lists">
       <ion-item (click)="viewList(list)">
         {{list.title}}
