@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavParams } from 'ionic-angular';
-import { ModalController, NavController, reorderArray } from 'ionic-angular';
+import { ModalController, NavController, reorderArray, AlertController } from 'ionic-angular';
 import { Data } from '../../providers/data';
 import { AddItemPage } from '../add-item-page/add-item-page'
 
@@ -14,7 +14,7 @@ export class ListDetailPage {
   title;
   public items = [];
 
-  constructor(public navParams: NavParams, navCtrl: NavController, public modalCtrl: ModalController, public dataService: Data) {
+  constructor(public navParams: NavParams, navCtrl: NavController, public modalCtrl: ModalController, public dataService: Data, public alertCtrl: AlertController) {
 
     this.dataService.getData(navParams.get('list').uuid).then((vare) => {
       if (vare) {
@@ -42,7 +42,7 @@ export class ListDetailPage {
 
   }
 
-    saveToStorage(){
+  saveToStorage() {
     this.dataService.save(this.items, this.navParams.get('list').uuid);
   }
 
@@ -64,6 +64,30 @@ export class ListDetailPage {
     }
   }
 
+  editItem(item) {
+    let prompt = this.alertCtrl.create({
+      title: 'Endre navn',
+      inputs: [{
+        name: 'title'
+      }],
+      buttons: [
+        {
+          text: 'Avbryt'
+        },
+        {
+          text: 'Lagre',
+          handler: data => {
+            let index = this.items.indexOf(item);
 
+            if (index > -1) {
+              this.items[index] = data;
+              this.saveToStorage();
+            }
+          }
+        }
+      ]
+    });
+    prompt.present();
+  }
 
 }

@@ -2,14 +2,14 @@
   <ion-navbar>
     <ion-buttons left>
       <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
+        <ion-icon name="menu" color="dark"></ion-icon>
       </button>
     </ion-buttons>
     <ion-title>
       HandlelAPP
     </ion-title>
     <ion-buttons end>
-      <button ion-button icon-only (click)="addList()"><ion-icon name="add-circle"></ion-icon></button>
+      <button ion-button icon-only (click)="addList()"><ion-icon name="add-circle" color="dark"></ion-icon></button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
@@ -23,6 +23,9 @@
       <ion-item-options>
         <button ion-button icon-only (click)="deleteList(list)" color="danger">
           <ion-icon name="trash"></ion-icon>
+        </button>
+        <button ion-button icon-only (click)="editList(list)" color="light">
+          <ion-icon name="paper"></ion-icon>
         </button>
       </ion-item-options>
     </ion-item-sliding>

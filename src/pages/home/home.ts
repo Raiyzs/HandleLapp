@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ModalController, NavController, reorderArray } from 'ionic-angular';
+import { ModalController, NavController, reorderArray, AlertController } from 'ionic-angular';
 import { AddListPage } from '../add-list-page/add-list-page'
 import { ListDetailPage } from '../list-detail-page/list-detail-page';
 import { Data } from '../../providers/data';
@@ -14,7 +14,7 @@ export class HomePage {
   public lists = [];
   reorderBtn: any = 'reorder';
 
-  constructor(public navCtrl: NavController, public modalCtrl: ModalController, public dataService: Data) {
+  constructor(public navCtrl: NavController, public modalCtrl: ModalController, public dataService: Data, public alertCtrl: AlertController) {
 
     this.dataService.getData('handlelapp').then((handlelapp) => {
       if (handlelapp) {
@@ -41,7 +41,7 @@ export class HomePage {
 
   }
 
-  saveToStorage(){
+  saveToStorage() {
     this.dataService.save(this.lists, 'handlelapp');
   }
 
@@ -67,6 +67,33 @@ export class HomePage {
       this.lists.splice(index, 1);
       this.saveToStorage();
     }
+  }
+
+  editList(list) {
+    let prompt = this.alertCtrl.create({
+      title: 'Endre navn',
+      inputs: [{
+        name: 'title'
+      }],
+      buttons: [
+        {
+          text: 'Avbryt'
+        },
+        {
+          text: 'Lagre',
+          handler: data => {
+            let index = this.lists.indexOf(list);
+
+            if (index > -1) {
+              this.lists[index] = data;
+              this.saveToStorage();
+            }
+          }
+        }
+      ]
+    });
+    prompt.present();
+
   }
 
 }
